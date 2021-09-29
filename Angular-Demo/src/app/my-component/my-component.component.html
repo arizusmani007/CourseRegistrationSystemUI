@@ -1,0 +1,26 @@
+<h1>Customer Form</h1>
+<form ngForm>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" [(ngModel)]="model.age" name="age">
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="createCustomer()">Submit</button>
+</form>
+
+<div>
+    <ol>
+        <li *ngFor='let cust of custArray; let indexOfElement=index'>
+            {{cust.name }} <b>||</b> {{cust.age }} <button type="button" class="btn btn-primary"
+                (click)="editCustomer(indexOfElement)">Edit</button>
+            <b>|</b><button type="button" class="btn btn-primary"
+                (click)="deleteCustomer(indexOfElement)">Delete</button>
+        </li>
+    </ol>
+
+</div>
